@@ -9,7 +9,10 @@
     "lint": "eslint src/*.js"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Zhibin Liang",
+    "email": "ifthereisoneday@gmail.com"
+  },
   "license": "ISC",
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",

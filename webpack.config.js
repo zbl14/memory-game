@@ -46,12 +46,12 @@ module.exports = {
           }
         ]
       },
-      // {
-      //   test:/\.html$/,
-      //   use: [
-      //     'html-loader'
-      //   ]
-      // },
+      {
+        test:/\.html$/i,
+        use: [
+          'html-loader'
+        ]
+      }
     ]
   }
 };
