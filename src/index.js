@@ -43,20 +43,18 @@ let unflipCard = () => {
 };
 
 
+let shuffle = (() => {
+  $(".memory-card").forEach(function(card) {
+    let ramdomCard = Math.floor(Math.random()*16);
+    card.style.order = ramdomCard;
+  });
+})();
 
-
-// function unflipCard(){
-//   $(".memory-card").on("click", function(){
-//     $(this).removeClass("flip");
-//   });
-// }
 
 
 
 
 $(document).ready(function() {
-
+  shuffle();
   flipCard();
-
-
 });
