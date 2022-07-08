@@ -46,3 +46,7 @@
 .front-face {
   transform: rotateY(180deg);
 }
+
+.memory-card.flip.match {
+  box-shadow: 1px 1px 1px 1px rgba(224, 28, 28, 0.3);
+}

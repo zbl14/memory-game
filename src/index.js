@@ -10,23 +10,23 @@ const cards = $(".memory-card")
 
 let flipCard = () => {
   cards.on("click", function(){
-    this.classList.add("flip");
-    if (!hasFlippedCard) {
+    if (this.classList.contains('match') === false) {
+      this.classList.add("flip");
+      if (!hasFlippedCard) {
+        console.log(hasFlippedCard);
+        hasFlippedCard = true;
+        console.log(hasFlippedCard);
+        firstCard = this;
+        return;
+      }
       console.log(hasFlippedCard);
-      hasFlippedCard = true;
+      secondCard = this;
+      hasFlippedCard = false;
       console.log(hasFlippedCard);
-      firstCard = this;
-      console.log(firstCard);
-      return;
+      checkMatch();
     }
-    console.log(hasFlippedCard);
-    secondCard = this;
-    console.log(secondCard);
-    hasFlippedCard = false;
-    console.log(hasFlippedCard);
-    checkMatch();
-  });
-};
+  })
+}
 
 let checkMatch = () => {
   let isMatch = firstCard.dataset.name === secondCard.dataset.name;
@@ -34,7 +34,8 @@ let checkMatch = () => {
 };
 
 let disableCards = () => {
-  $(".memory-card").off("click", flipCard);
+  firstCard.classList.add('match');
+  secondCard.classList.add('match');
 };
 
 let unflipCard = () => {
@@ -44,14 +45,12 @@ let unflipCard = () => {
   }, 1500);
 };
 
-
 (function shuffle() {
   for (let i = 0; i <=15; i++) { 
     let ramdomPos = Math.floor(Math.random() * 16);
     cards[i].style.order = ramdomPos;
   }
 })()
-
 
 $(document).ready(function() {
   flipCard();
