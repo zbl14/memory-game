@@ -23,11 +23,11 @@ A game challenge your memory. Remember the picture of a card you had fliped and 
 $ git clone https://github.com/zbl14/memory-game.git
 ```
 2. Open terminal, use "cd" command to reach the directory named "memory-game"
-3. 
+3. Install all required dependencies by
 ```sh
 $ npm install
 ```
-4. 
+4. Run the application by
 ```sh
 $ npm run start
 ```
