@@ -6,8 +6,10 @@ import $ from 'jquery';
 let hasFlippedCard = false;
 let firstCard, secondCard;
 
+const cards = $(".memory-card")
+
 let flipCard = () => {
-  $(".memory-card").on("click", function(){
+  cards.on("click", function(){
     this.classList.add("flip");
     if (!hasFlippedCard) {
       console.log(hasFlippedCard);
@@ -43,18 +45,14 @@ let unflipCard = () => {
 };
 
 
-let shuffle = (() => {
-  $(".memory-card").forEach(function(card) {
-    let ramdomCard = Math.floor(Math.random()*16);
-    card.style.order = ramdomCard;
-  });
-})();
-
-
-
+(function shuffle() {
+  for (let i = 0; i <=15; i++) { 
+    let ramdomPos = Math.floor(Math.random() * 16);
+    cards[i].style.order = ramdomPos;
+  }
+})()
 
 
 $(document).ready(function() {
-  shuffle();
   flipCard();
 });
