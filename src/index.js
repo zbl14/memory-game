@@ -1,13 +1,14 @@
 import 'bootstrap';
 import './css/styles.css';
 import $ from 'jquery';
+// import { Game } from './js/game';
 
+// let game = new Game();
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 let move = 0;
 let match = 0;
-
 const cards = $(".memory-card");
 
 let flipCard = () => {
