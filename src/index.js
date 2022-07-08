@@ -1,10 +1,10 @@
 import 'bootstrap';
 import './css/styles.css';
 import $ from 'jquery';
-// import { Card } from '..src/js/game.js'
 
 let hasFlippedCard = false;
 let firstCard, secondCard;
+let move = 0
 
 const cards = $(".memory-card")
 
@@ -24,6 +24,8 @@ let flipCard = () => {
       hasFlippedCard = false;
       console.log(hasFlippedCard);
       checkMatch();
+      move++
+      $(".move").html(move);
     }
   })
 }
@@ -42,8 +44,9 @@ let unflipCard = () => {
   setTimeout(() => {
     firstCard.classList.remove("flip");
     secondCard.classList.remove("flip");
-  }, 1500);
+  }, 1000);
 };
+
 
 (function shuffle() {
   for (let i = 0; i <=15; i++) { 
