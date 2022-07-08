@@ -3,31 +3,35 @@ import './css/styles.css';
 import $ from 'jquery';
 
 let hasFlippedCard = false;
+let lockBoard = false;
 let firstCard, secondCard;
 let move = 0
 
 const cards = $(".memory-card")
 
 let flipCard = () => {
+
   cards.on("click", function(){
+    if (lockBoard === false) {
     if (this.classList.contains('match') === false) {
       this.classList.add("flip");
       if (!hasFlippedCard) {
-        console.log(hasFlippedCard);
         hasFlippedCard = true;
-        console.log(hasFlippedCard);
         firstCard = this;
+        console.log("firstCard")
         return;
       }
-      console.log(hasFlippedCard);
       secondCard = this;
+      console.log("secondCard")
       hasFlippedCard = false;
-      console.log(hasFlippedCard);
+      lockBoard = true;
+      console.log("true" + lockBoard)
       checkMatch();
       move++
       $(".move").html(move);
     }
-  })
+  }
+})
 }
 
 let checkMatch = () => {
@@ -38,14 +42,17 @@ let checkMatch = () => {
 let disableCards = () => {
   firstCard.classList.add('match');
   secondCard.classList.add('match');
+  lockBoard = false;
 };
 
 let unflipCard = () => {
   setTimeout(() => {
     firstCard.classList.remove("flip");
     secondCard.classList.remove("flip");
+    lockBoard = false;
   }, 1000);
 };
+
 
 
 (function shuffle() {
