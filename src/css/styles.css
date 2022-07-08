@@ -50,3 +50,7 @@
 .memory-card.flip.match {
   box-shadow: 1px 1px 1px 1px rgba(224, 28, 28, 0.3);
 }
+
+.center {
+  text-align: center;
+}
